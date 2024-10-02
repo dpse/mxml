@@ -14,7 +14,7 @@ AC_PREREQ([2.70])
 
 
 dnl Package name and version...
-AC_INIT([Mini-XML], [4.0.2], [https://github.com/michaelrsweet/mxml/issues], [mxml], [https://www.msweet.org/mxml])
+AC_INIT([Mini-XML], [4.0.4], [https://github.com/michaelrsweet/mxml/issues], [mxml], [https://www.msweet.org/mxml])
 AC_CONFIG_HEADERS([config.h])
 
 MXML_VERSION="AC_PACKAGE_VERSION"
@@ -42,10 +42,10 @@ AS_IF([test "x$host_os_version" = x], [
 dnl Compiler options...
 CFLAGS="${CFLAGS:=}"
 CPPFLAGS="${CPPFLAGS:=}"
-DSO=""
-DSOFLAGS="${DSOFLAGS:=}"
 LDFLAGS="${LDFLAGS:=}"
 LIBS="${LIBS:=}"
+DSO=""
+DSOFLAGS="${DSOFLAGS:=$LDFLAGS}"
 OPTIM="${OPTIM:=}"
 
 AC_SUBST([DSO])
@@ -83,17 +83,20 @@ dnl Library prefix...
 AC_ARG_ENABLE([libmxml4-prefix], AS_HELP_STRING([--disable-libmxml4-prefix], [do not add libmxml4 prefix to header/library files]))
 
 AS_IF([test x$enable_libmxml4_prefix != xno], [
+    MXML_MAN="mxml4.3"
     MXML_PC="mxml4.pc"
     INCLUDE_PREFIX="/libmxml4"
     LIBMXML_BASE="libmxml4"
     LINK_MXML="-lmxml4"
 ], [
+    MXML_MAN="mxml.3"
     MXML_PC="mxml.pc"
     INCLUDE_PREFIX=""
     LIBMXML_BASE="libmxml"
     LINK_MXML="-lmxml"
 ])
 AC_SUBST([LIBMXML_BASE])
+AC_SUBST([MXML_MAN])
 AC_SUBST([MXML_PC])
 
 
