@@ -13,6 +13,7 @@
 #  include <unistd.h>
 #endif // !_WIN32
 #include "mxml-private.h"
+#include <unistd.h>
 
 
 //
