@@ -6,6 +6,7 @@ v4.0.5 (YYYY-MM-DD)
 -------------------
 
 - Added support for the "apos" entity (Issue #346)
+- Fixed an access issue in `mxmlIndexNew` (Issue #350)
 
 
 v4.0.4 (2025-01-19)
